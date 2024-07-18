@@ -1,0 +1,14 @@
+[Unit]
+Description=Temperature & Humidity Sensor
+After=multi-user.target
+
+[Service]
+User=rpi
+Group=rpi
+Type=idle
+WorkingDirectory=/home/rpi/test/
+ExecStart=/home/rpi/Env/venv/bin/python3 mqtt_publisher.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
